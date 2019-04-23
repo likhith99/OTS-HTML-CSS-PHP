@@ -104,14 +104,7 @@
           <a href="addpost.php"><i class="btn btn-primary btn-block" data-toggle="modal" data-target="register.php">
             <i class="fas fa-plus"></i>Add post</i>
           </a>
-        </div>
-        <div class="col-md-3">
-          <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#addCategoryModal">
-            <i class="fas fa-plus"></i>Add Category
-          </a>
-        </div>
       </div>
-    </div>
   </section>
 
   <!--POSTS-->
@@ -164,15 +157,6 @@
               <!-- <a href="posts.html" class="btn btn-outline-light btn-sm">View</a> -->
             </div>
           </div>
-          <div class="card text-center bg-success text-white mb-3">
-            <div class="card-body">
-              <h3>Categories</h3>
-              <h4 class="display-4">
-                <i class="fas fa-folder"></i> 6
-              </h4>
-              <a href="categories.html" class="btn btn-outline-light btn-sm">View</a>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -194,73 +178,8 @@
     </div>
   </footer>
 
-  <!--MODALS-->
 
-  <!--ADD POST MODAL-->
-  <div class="modal fade" id="addPostModal">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header bg-primary text-white">
-          <h5 class="modal-title">Add Post</h5>
-          <button class="close" data-dismiss="modal">
-            <span>&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form method="post" action="index.php" name="myForm" onsubmit = "return(validate());">
-            <div class="form-group">
-              <label for="title">Title</label>
-              <input type="text" name= "title" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="title">Category</label>
-              <input type="text" name= "category" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="image">Upload Image</label>
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="image">
-                <label for="image" class="custom-file-label">Choose File</label>
-              </div>
-              <small class="form-text.text-muted">Max Size 3mb</small>
-            </div>
-            <div class="form-group">
-              <label for="body">Body</label>
-              <textarea name="editor1" class="form-control"></textarea>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-primary" data-dismiss="modal">Save Changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!--ADD CATEGORY MODAL-->
-  <div class="modal fade" id="addCategoryModal">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header bg-success text-white">
-          <h5 class="modal-title">Add Category</h5>
-          <button class="close" data-dismiss="modal">
-            <span>&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form action="">
-            <div class="form-group">
-              <label for="title">Title</label>
-              <input type="text" class="form-control">
-            </div>
-            </form>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-success" data-dismiss="modal">Save Changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
 
   <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
