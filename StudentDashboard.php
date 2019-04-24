@@ -49,13 +49,7 @@
             <a href="StudentDashboard.php" class="nav-link">Dashboard</a>
           </li>
           <li class="nav-item px-2">
-            <a href="posts.html" class="nav-link active">Posts</a>
-          </li>
-          <li class="nav-item px-2">
-            <a href="categories.html" class="nav-link">Categories</a>
-          </li>
-          <li class="nav-item px-2">
-            <a href="users.html" class="nav-link">Users</a>
+            <a href="StudentDashboard.php" class="nav-link active">Posts</a>
           </li>
         </ul>
 
@@ -97,7 +91,7 @@
   </header>
 
   <!--SEARCH-->
-  <section id="search" class="py-4 mb-4 bg-light">
+  <!-- <section id="search" class="py-4 mb-4 bg-light">
     <div class="container">
       <div class="row">
         <div class="col-md-6 ml-auto">
@@ -110,9 +104,11 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!--POSTS-->
+  <br>
+  <br>
   <section id="posts">
     <div class="container">
       <div class="row">
@@ -124,10 +120,10 @@
              <table class="table table-striped">
                <thead class="thead-dark">
                  <tr>
-                   <th>#</th>
                    <th>Title</th>
                    <th>Category</th>
-                   <th>Date</th>
+                   <th>Uploaded On</th>
+                   <th>Author</th>
                    <th></th>
                  </tr>
                </thead>
@@ -144,9 +140,7 @@
 
                  }
                  ?>
-                     <a href="details.html" class="btn btn-secondary">
-                       <i class="fas fa-angle-double-right"></i>Details
-                     </a>
+
                    </tr>
                </tbody>
              </table>
@@ -195,13 +189,13 @@
                      echo $row['comment']."<hr>";
                    }
                      ?>
-                     <hr>
+
 
                   <div class="panel-body">
                     <form method="post" action="StudentDashboard.php" name="myForm" onsubmit = "return(validate());">
                       <div class="form-group">
-                         <label for="comment">comment below!</label>
-                         <input type="text" name= "comment" class="form-control" required/>
+                        <label for="comment">Comment Below!</label>
+                        <textarea class="form-control" name= "comment" rows="3" required></textarea>
                       </div>
                             <br>
                             <div class="form-group">
@@ -230,9 +224,9 @@
       <div class="row">
         <div class="col">
           <p class="lead text-center">
-            Copyright &copy;
+
             <span id="year"></span>
-            OTS
+            Online Tutoring System | SSDI Spring project
           </p>
         </div>
       </div>

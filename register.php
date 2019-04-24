@@ -107,7 +107,7 @@
 <body>
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
     <div class="container">
-      <a href="index.html" class="navbar-brand">OTS</a>
+      <a href="login.php" class="navbar-brand">OTS</a>
     </div>
   </nav>
 
@@ -198,9 +198,9 @@
       <div class="row">
         <div class="col">
           <p class="lead text-center">
-            Copyright &copy;
+
             <span id="year"></span>
-            OTS
+            Online Tutoring System | SSDI Spring project
           </p>
         </div>
       </div>

@@ -7,6 +7,13 @@
            or die("Failed to query database" .mysqli_error());
    //$row = mysqli_fetch_array($result);
    $num =mysqli_num_rows ($result);
+   if(isset($_POST['register'])) {
+     $EMAIL = 'email';
+
+   $comm = mysqli_query($conn, "UPDATE `users` SET `approved`=1 WHERE `email`= '$email' ");
+   header('Location: AdminDashboard.php');
+   exit;
+ }
 
 ?>
 
@@ -28,17 +35,17 @@
 <body>
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
     <div class="container">
-      <a href="index.html" class="navbar-brand">OTS</a>
+      <a href="AdminDashboard.php" class="navbar-brand">OTS</a>
       <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav">
           <li class="nav-item px-2">
-            <a href="index.html" class="nav-link active"> Dashboard</a>
+            <a href="AdminDashboard.php" class="nav-link active"> Dashboard</a>
           </li>
           <li class="nav-item px-2">
-            <a href="users.html" class="nav-link">Users</a>
+            <a href="AdminDashboard.php" class="nav-link">Users</a>
           </li>
         </ul>
 
@@ -47,13 +54,13 @@
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
               <i class="fas fa-user"></i>Welcome admin
             </a>
-            <div class="dropdown-menu">
+            <!-- <div class="dropdown-menu">
                <a href="profile.html" class="dropdown-item"><i class="fas fa-user-circle"></i>Profile</a>
                <a href="settings.html" class="dropdown-item"><i class="fas fa-cog"></i>Settings</a>
-            </div>
+            </div> -->
           </li>
           <li class="nav-item">
-            <a href="login.html" class="nav-link">
+            <a href="login.php" class="nav-link">
               <i class="fas fa-user-times"></i>Logout
             </a>
           </li>
@@ -97,32 +104,61 @@
 
            <div class="card">
              <div class="card-header">
-               <h4>Submitted Tutors</h4>
+               <h4>USERS</h4>
              </div>
              <table class="table table-striped">
                <thead class="thead-dark">
                  <tr>
-                   <th>#</th>
-                   <th>Emails</th>
-                   <th>Category</th>
-                   <th>Date</th>
-                   <th></th>
+                   <th>Firstname</th>
+                   <th>lastname</th>
+                   <th>Subject Interested</th>
+                   <th>Email</th>
+                   <th>Status</th>
+                   <th>Status</th>
                  </tr>
                </thead>
                <tbody>
 
                 <?php
               while ($row= mysqli_fetch_assoc($result)) {
-               if ($row['role'] == '0' && $row['approved'] == '1' ) {
+               if ($row['role'] == '1' && $row['approved'] == '0' ) {
                    //echo "Login successful!! Welcome" . $row['email'];
                    echo "<tr>";
                    echo "<th>".$row['firstname']."</th>";
                    echo "<td>".$row['lastname']."</td>";
                    echo "<td>".$row['course']."</td>";
                    echo "<td>".$row['email']."</td>";
+                   echo "<td>NOT APPROVED</td>";
+                   // echo( "<td><button name= "register" >Approve</button></td>");
+                   echo "<td>".'<input type="submit" name= "register" value="Approve'  . '" />'."</td>";
                   }
 
-                }
+
+                //while ($row= mysqli_fetch_assoc($result)) {
+                 elseif ($row['role'] == '1' && $row['approved'] == '1' ) {
+                     //echo "Login successful!! Welcome" . $row['email'];
+                     echo "<tr>";
+                     echo "<th>".$row['firstname']."</th>";
+                     echo "<td>".$row['lastname']."</td>";
+                     echo "<td>".$row['course']."</td>";
+                     echo "<td>".$row['email']."</td>";
+                     echo "<td>APPROVED</td>";
+                     echo "<td></td>";
+                   }
+
+
+                  else {
+                       //echo "Login successful!! Welcome" . $row['email'];
+                       echo "<tr>";
+                       echo "<th>".$row['firstname']."</th>";
+                       echo "<td>".$row['lastname']."</td>";
+                       echo "<td>".$row['course']."</td>";
+                       echo "<td>".$row['email']."</td>";
+                       echo "<td>STUDENT</td>";
+                       echo "<td></td>";
+                      }
+
+                    }
                 ?>
 
 
@@ -133,7 +169,7 @@
            <br><br>
 
            <!--APPROVED TUTORS TABLE-->
-           <div class="card">
+           <!-- <div class="card">
              <div class="card-header">
                <h4>Approved Tutors</h4>
              </div>
@@ -152,13 +188,13 @@
 
                while ($row= mysqli_fetch_assoc($result)) {
               if ($row['role'] == '0' && $row['approved'] == '0' ) {
-                    //echo "Login successful!! Welcome" . $row['email'];
+                    echo "Login successful!! Welcome" . $row['email'];
                     echo "<tr>";
                     echo "<td>".$row['firstname']."</td>";
                     echo "<td>".$row['lastname']."</td>";
                     echo "<td>".$row['course']."</td>";
                     echo "<td>".$row['email']."</td>";
-                  }
+                 }
 
                  }
                  ?>
@@ -168,7 +204,7 @@
 
                </tbody>
              </table>
-           </div>
+           </div> -->
 
 
         </div>
@@ -194,9 +230,9 @@
       <div class="row">
         <div class="col">
           <p class="lead text-center">
-            Copyright &copy;
+
             <span id="year"></span>
-            OTS
+            Online Tutoring System | SSDI Spring project
           </p>
         </div>
       </div>

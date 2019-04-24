@@ -63,7 +63,7 @@
                         <input type="submit" id="btn" value="login" class="btn.btn-primary.btn-block">
                     </div>
                     <div class="form-group">
-                        <a href="register.html">Not a member? Register</a>
+                        <a href="register.php">Not a member? Register</a>
                     </div>
                 </form>
             </div>
@@ -80,9 +80,9 @@
       <div class="row">
         <div class="col">
           <p class="lead text-center">
-            Copyright &copy;
+
             <span id="year"></span>
-            OTS
+             Online Tutoring System | SSDI Spring project
           </p>
         </div>
       </div>

@@ -86,7 +86,7 @@
 <body>
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
     <div class="container">
-      <a href="index.html" class="navbar-brand">OTS</a>
+      <a href="addpost.php" class="navbar-brand">OTS</a>
     </div>
   </nav>
 

@@ -21,6 +21,18 @@
        mysqli_query($db, $sql);
        echo "Registration successful";
      }
+
+     $comr = mysqli_query($conn, "select * from comments ")
+           or die("Failed to query database" .mysqli_error());
+
+           if(isset($_POST['register'])) {
+             $name= $_SESSION['name'];
+              $comment = $_POST['comment'];
+
+           $comm = mysqli_query($conn, "INSERT INTO comments (username, comment) VALUES('$name','$comment')");
+           header('Location: StudentDashboard.php');
+           exit;
+         }
        //header("location: login.php");
 
 
@@ -56,10 +68,7 @@
           <li class="nav-item px-2">
             <a href="posts.php" class="nav-link">Posts</a>
           </li>
-          <li class="nav-item px-2">
-            <a href="categories.html" class="nav-link">Categories</a>
-          </li>
-        </ul>
+          </ul>
 
         <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown mr-3">
@@ -119,12 +128,11 @@
              <table class="table table-striped">
                <thead class="thead-dark">
                  <tr>
-                   <th>#</th>
                    <th>Title</th>
                    <th>Category</th>
-                   <th>Date</th>
-                   <th></th>
-                 </tr>
+                   <th>Published On</th>
+                   <th>Author</th>
+                   </tr>
                </thead>
                <tbody>
                  <?php
@@ -161,6 +169,40 @@
       </div>
     </div>
   </section>
+
+
+  <!--COMMENT SECTION-->
+  <section id="comments">
+  <div class="container">
+  <div class="row">
+      <div class="col-md-9">
+          <div class="comment-wrapper">
+              <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4>  Comments</h4>
+                  </div>
+
+                  <?php
+                  while ($row= mysqli_fetch_assoc($comr)) {
+                     echo "<h5>". $row['username']."<br>"."</h5>";
+                     echo $row['comment']."<hr>";
+                   }
+                     ?>
+
+
+                  <div class="panel-body">
+                    <form method="post" action="StudentDashboard.php" name="myForm" onsubmit = "return(validate());">
+                      <div class="form-group">
+                        <label for="comment">Comment Below!</label>
+                        <textarea class="form-control" name= "comment" rows="3" required></textarea>
+                      </div>
+                            <br>
+                            <div class="form-group">
+                            <input type="submit" name= "register" class="btn btn-info" value="COMMENT">
+                      </div>
+                      </form>
+                      <hr>
+                      </section>
 
   <!--FOOTER-->
 
